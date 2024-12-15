@@ -32,8 +32,8 @@ const DisplacementSphere: React.FC = (props) => {
   const { theme } = useTheme();
   const rgbBackground = theme === 'light' ? '250 250 250' : '17 17 17';
 
-  const width = useRef<number>(window.innerWidth);
-  const height = useRef<number>(window.innerHeight);
+  const width = useRef<number>(null);
+  const height = useRef<number>(null);
   const start = useRef<number>(Date.now());
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouse = useRef<Vector2>(new Vector2(0.8, 0.5));
@@ -49,6 +49,13 @@ const DisplacementSphere: React.FC = (props) => {
   const sphereSpring = useRef<any>(null);
   const prefersReducedMotion = Boolean(usePrefersReducedMotion() && false);
   const isInViewport = useInViewport(canvasRef);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      width.current = window.innerWidth;
+      height.current = window.innerHeight;
+    }
+  }, []);
 
   // Инициализация Three.js сцены
   useEffect(() => {
