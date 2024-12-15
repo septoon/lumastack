@@ -225,19 +225,29 @@ const DisplacementSphere: React.FC = (props) => {
   }, [isInViewport, prefersReducedMotion]);
 
   return (
-    <Transition appear in onEnter={reflow} timeout={3000} nodeRef={canvasRef}>
-      {(status) => (
-        <canvas
-          aria-hidden
-          ref={canvasRef}
-          className={classNames(
-            'displacement-sphere',
-            `displacement-sphere--${status}`
-          )}
-          {...props}
-        />
+    <Transition
+  appear
+  in
+  nodeRef={canvasRef}
+  onEnter={(isAppearing: boolean) => {
+    if (canvasRef.current) {
+      reflow(canvasRef.current);
+    }
+  }}
+  timeout={3000}
+>
+  {(status) => (
+    <canvas
+      aria-hidden
+      ref={canvasRef}
+      className={classNames(
+        'displacement-sphere',
+        `displacement-sphere--${status}`
       )}
-    </Transition>
+      {...props}
+    />
+  )}
+</Transition>
   );
 };
 
