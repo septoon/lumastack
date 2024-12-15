@@ -35,7 +35,7 @@ const DisplacementSphere: React.FC = (props) => {
   const width = useRef<number>(null);
   const height = useRef<number>(null);
   const start = useRef<number>(Date.now());
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef<Vector2>(new Vector2(0.8, 0.5));
   const renderer = useRef<WebGLRenderer | null>(null);
   const camera = useRef<PerspectiveCamera | null>(null);
@@ -48,7 +48,8 @@ const DisplacementSphere: React.FC = (props) => {
   const tweenRef = useRef<any>(null);
   const sphereSpring = useRef<any>(null);
   const prefersReducedMotion = Boolean(usePrefersReducedMotion() && false);
-  const isInViewport = useInViewport(canvasRef);
+  // Приведение типа для совместимости с useInViewport
+  const isInViewport = useInViewport(canvasRef as React.RefObject<Element>);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
