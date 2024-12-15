@@ -32,8 +32,8 @@ const DisplacementSphere: React.FC = (props) => {
   const { theme } = useTheme();
   const rgbBackground = theme === 'light' ? '250 250 250' : '17 17 17';
 
-  const width = useRef<number>(null);
-  const height = useRef<number>(null);
+  const width = useRef<number>(0);
+  const height = useRef<number>(0);
   const start = useRef<number>(Date.now());
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef<Vector2>(new Vector2(0.8, 0.5));
@@ -48,7 +48,6 @@ const DisplacementSphere: React.FC = (props) => {
   const tweenRef = useRef<any>(null);
   const sphereSpring = useRef<any>(null);
   const prefersReducedMotion = Boolean(usePrefersReducedMotion() && false);
-  // Приведение типа для совместимости с useInViewport
   const isInViewport = useInViewport(canvasRef as React.RefObject<Element>);
 
   useEffect(() => {
@@ -58,7 +57,6 @@ const DisplacementSphere: React.FC = (props) => {
     }
   }, []);
 
-  // Инициализация Three.js сцены
   useEffect(() => {
     if (!canvasRef.current) return;
 
@@ -108,7 +106,6 @@ const DisplacementSphere: React.FC = (props) => {
     };
   }, []);
 
-  // Освещение
   useEffect(() => {
     const dirLight = new DirectionalLight(rgbToThreeColor('250 250 250'), 0.6);
     const ambientLight = new AmbientLight(
@@ -127,27 +124,28 @@ const DisplacementSphere: React.FC = (props) => {
     };
   }, [theme, rgbBackground]);
 
-  // Адаптация размера окна
   useEffect(() => {
     const handleResize = () => {
       const canvasHeight = innerHeight();
       const windowWidth = window.innerWidth;
       const fullHeight = canvasHeight + canvasHeight * 0.3;
-      canvasRef.current!.style.height = `${fullHeight}px`;
-      renderer.current!.setSize(windowWidth, fullHeight);
-      camera.current!.aspect = windowWidth / fullHeight;
-      camera.current!.updateProjectionMatrix();
+      if (canvasRef.current && renderer.current && camera.current && sphere.current) {
+        canvasRef.current.style.height = `${fullHeight}px`;
+        renderer.current.setSize(windowWidth, fullHeight);
+        camera.current.aspect = windowWidth / fullHeight;
+        camera.current.updateProjectionMatrix();
 
-      if (prefersReducedMotion) {
-        renderer.current!.render(scene.current!, camera.current!);
-      }
+        if (prefersReducedMotion) {
+          renderer.current.render(scene.current!, camera.current!);
+        }
 
-      if (windowWidth <= media.mobile) {
-        sphere.current!.position.set(14, 10, 0);
-      } else if (windowWidth <= media.tablet) {
-        sphere.current!.position.set(18, 14, 0);
-      } else {
-        sphere.current!.position.set(22, 16, 0);
+        if (windowWidth <= media.mobile) {
+          sphere.current.position.set(14, 10, 0);
+        } else if (windowWidth <= media.tablet) {
+          sphere.current.position.set(18, 14, 0);
+        } else {
+          sphere.current.position.set(22, 16, 0);
+        }
       }
     };
 
@@ -159,10 +157,10 @@ const DisplacementSphere: React.FC = (props) => {
     };
   }, [prefersReducedMotion]);
 
-  // Движение мыши
   useEffect(() => {
     const onMouseMove = (event: MouseEvent) => {
-      const { rotation } = sphere.current!;
+      if (!sphere.current) return;
+      const { rotation } = sphere.current;
       const position = {
         x: event.clientX / window.innerWidth,
         y: event.clientY / window.innerHeight,
@@ -195,7 +193,6 @@ const DisplacementSphere: React.FC = (props) => {
     };
   }, [isInViewport, prefersReducedMotion]);
 
-  // Анимация
   useEffect(() => {
     let animation: number;
 
@@ -206,14 +203,18 @@ const DisplacementSphere: React.FC = (props) => {
         uniforms.current.time.value = 0.00005 * (Date.now() - start.current);
       }
 
-      sphere.current!.rotation.z += 0.001;
-      renderer.current!.render(scene.current!, camera.current!);
+      if (sphere.current && renderer.current && camera.current && scene.current) {
+        sphere.current.rotation.z += 0.001;
+        renderer.current.render(scene.current, camera.current);
+      }
     };
 
     if (!prefersReducedMotion && isInViewport) {
       animate();
     } else {
-      renderer.current!.render(scene.current!, camera.current!);
+      if (renderer.current && camera.current && scene.current) {
+        renderer.current.render(scene.current, camera.current);
+      }
     }
 
     return () => {
