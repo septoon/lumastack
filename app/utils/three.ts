@@ -21,9 +21,6 @@ export const cleanScene = (scene: Scene): void => {
       cleanMaterial(mesh.material);
     }
   });
-
-  // Dispose the scene itself
-  scene.dispose();
 };
 
 /**
