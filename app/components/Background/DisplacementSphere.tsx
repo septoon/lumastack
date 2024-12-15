@@ -28,6 +28,10 @@ import { media, rgbToThreeColor } from '../../utils/style';
 import { cleanScene, removeLights, cleanRenderer } from '../../utils/three';
 import { useTheme } from '../Theme/ThemeProvider';
 
+interface CustomMesh extends Mesh {
+  modifier?: number;
+}
+
 const DisplacementSphere: React.FC = (props) => {
   const { theme } = useTheme();
   const rgbBackground = theme === 'light' ? '250 250 250' : '17 17 17';
@@ -44,7 +48,7 @@ const DisplacementSphere: React.FC = (props) => {
   const uniforms = useRef<any>(null);
   const material = useRef<MeshPhongMaterial | null>(null);
   const geometry = useRef<SphereBufferGeometry | null>(null);
-  const sphere = useRef<Mesh | null>(null);
+  const sphere = useRef<CustomMesh | null>(null);
   const tweenRef = useRef<any>(null);
   const sphereSpring = useRef<any>(null);
   const prefersReducedMotion = Boolean(usePrefersReducedMotion() && false);
@@ -89,12 +93,11 @@ const DisplacementSphere: React.FC = (props) => {
       shader.uniforms = uniforms.current;
       shader.vertexShader = vertShader;
       shader.fragmentShader = fragShader;
-      shader.lights = true;
     };
 
     geometry.current = new SphereBufferGeometry(32, 128, 128);
 
-    sphere.current = new Mesh(geometry.current, material.current);
+    sphere.current = new Mesh(geometry.current!, material.current!) as CustomMesh;
     sphere.current.position.z = 0;
     sphere.current.modifier = Math.random();
     scene.current.add(sphere.current);
