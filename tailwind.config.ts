@@ -81,7 +81,6 @@ module.exports = {
         lightSlateGray: '#778899',
         darkGray: '#141616',
         veryDarkGray: '#272822',
-        darkSwitch: '#2b2b2f',
         DimGray: '#696969',
         red: '#FF0000',
         orange: '#FFA500',
