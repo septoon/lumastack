@@ -7,6 +7,13 @@ module.exports = {
   ],
   safelist: ["bg-transparent"],
   theme: {
+    screens: {
+      'sm': '360px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     fontWeight: {
       thin: '100',
       hairline: '100',
