@@ -30,16 +30,93 @@ module.exports = {
       animation: {
         scan: 'scan 2s linear infinite',
         pulse: 'pulse 1.5s ease-in-out infinite',
+        fadeIn: 'fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+        slideUp: 'slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+        slideInLeft: 'slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+        slideInRight: 'slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+        scaleUp: 'scaleUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+        float: 'float 3s ease-in-out infinite',
+        wiggle: 'wiggle 1s ease-in-out infinite'
       },
       keyframes: {
         scan: {
           '0%': { top: '0%' },
           '100%': { top: '100%' },
         },
-        pulse: {
-          '0%, 100%': { opacity: 0.3 },
-          '50%': { opacity: 0.7 },
+        fadeIn: {
+          '0%': { opacity: '0', filter: 'blur(10px)' },
+          '100%': { opacity: '1', filter: 'blur(0)' }
         },
+        slideUp: {
+          '0%': { 
+            transform: 'translateY(100px) rotate(-5deg)', 
+            opacity: '0',
+            filter: 'blur(10px)'
+          },
+          '100%': { 
+            transform: 'translateY(0) rotate(0)', 
+            opacity: '1',
+            filter: 'blur(0)'
+          }
+        },
+        slideInLeft: {
+          '0%': { 
+            transform: 'translateX(-200px) skew(20deg)', 
+            opacity: '0',
+            filter: 'blur(10px)'
+          },
+          '100%': { 
+            transform: 'translateX(0) skew(0)', 
+            opacity: '1',
+            filter: 'blur(0)'
+          }
+        },
+        slideInRight: {
+          '0%': { 
+            transform: 'translateX(200px) skew(-20deg)', 
+            opacity: '0',
+            filter: 'blur(10px)'
+          },
+          '100%': { 
+            transform: 'translateX(0) skew(0)', 
+            opacity: '1',
+            filter: 'blur(0)'
+          }
+        },
+        scaleUp: {
+          '0%': { 
+            transform: 'scale(0.5) rotate(-10deg)', 
+            opacity: '0',
+            filter: 'blur(10px)'
+          },
+          '70%': { 
+            transform: 'scale(1.05) rotate(2deg)', 
+            opacity: '0.7'
+          },
+          '100%': { 
+            transform: 'scale(1) rotate(0)', 
+            opacity: '1',
+            filter: 'blur(0)'
+          }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' }
+        },
+        pulse: {
+          '0%, 100%': { 
+            transform: 'scale(1)',
+            opacity: '1'
+          },
+          '50%': { 
+            transform: 'scale(1.05)',
+            opacity: '0.9'
+          }
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' }
+        }
       },
       backgroundImage: {
         'main': "url('/main.webp')",
@@ -97,5 +174,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
 };

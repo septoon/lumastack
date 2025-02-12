@@ -59,6 +59,7 @@ const DisplacementSphere: React.FC = (props) => {
       width.current = window.innerWidth;
       height.current = window.innerHeight;
     }
+    
   }, []);
 
   useEffect(() => {

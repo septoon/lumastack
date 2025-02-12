@@ -10,7 +10,7 @@ const Content: React.FC = () => {
         <h2 className="text-xl md:text-2xl text-gray-800">
           <TextDecrypt text={`${FirstName} ${LastName}`} />
         </h2>
-        <h1 className="text-5xl md:text-6xl font-bold mt-4 text-gray-900">
+        <h1 className="text-7xl md:text-6xl font-bold mt-4 text-gray-900">
           <TextDecrypt text={`${Resume.basics.job1} + `} />
           <TextDecrypt text={`${Resume.basics.job2}`} />
         </h1>
