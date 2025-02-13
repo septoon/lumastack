@@ -29,7 +29,7 @@ module.exports = {
     extend: {
       animation: {
         scan: 'scan 2s linear infinite',
-        pulse: 'pulse 1.5s ease-in-out infinite',
+        pulse: 'pulse 2s ease-in-out infinite',
         fadeIn: 'fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
         slideUp: 'slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
         slideInLeft: 'slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',

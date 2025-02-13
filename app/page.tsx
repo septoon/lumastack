@@ -1,6 +1,9 @@
 import Content from "./components/Content/Content";
 import Contact from "./components/Contact/Contact";
 import Header from "./components/Header/Header";
+import Skills from "./components/Skills/Skills";
+import Works from "./components/Works/Works";
+import About from "./components/About/About";
 
 export default function Home() {
   return (
@@ -10,15 +13,15 @@ export default function Home() {
         <Content />
       </main>
       <section id="works" className="min-h-screen snap-start flex">
-      <p>works</p>
+        <Works />
       </section>
 
       <section id="about" className="min-h-screen snap-start flex">
-      <p>about</p>
+        <About />
       </section>
 
       <section id="skills" className="min-h-screen snap-start flex">
-      <p>skills</p>
+        <Skills />
       </section>
 
       <section id="contact" className="min-h-screen snap-start flex w-full">
