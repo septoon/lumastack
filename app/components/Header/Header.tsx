@@ -50,7 +50,7 @@ const Header = () => {
             <div className="bg-white/60 dark:bg-black/60 rounded-2xl shadow-lg py-2">
               {navigation.map((item) => (
                 <a
-                  key={item.name}
+                  key={item.title}
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
