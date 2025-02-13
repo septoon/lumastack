@@ -5,7 +5,7 @@ interface TextTypingProps {
   speed?: number;
 }
 
-export const TextTyping: React.FC<TextTypingProps> = ({ text, speed = 50 }) => {
+export const TextTyping: React.FC<TextTypingProps> = ({ text, speed = 10 }) => {
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
 
