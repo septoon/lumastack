@@ -35,39 +35,11 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {/* {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveNav(item.href);
-                  scrollToSection(item.href);
-                }}
-                className={`hover:text-gray-900 inline-flex items-center px-1 text-sm font-medium transition-colors relative group ${
-                  activeNav === item.href ? 'text-[#ec704c]' : 'text-[#575757]'
-                }`}>
-                <TextDecrypt text={item.name} />
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-              </a>
-            ))} */}
             <NavDesktop />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            {/* <StyledWrapper>
-                <label onClick={toggleMenu} className="hamburger">
-                  <input type="checkbox" />
-                  <svg viewBox="0 0 32 32">
-                    <path
-                      className="line line-top-bottom"
-                      d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-                    />
-                    <path className="line" d="M7 16 27 16" />
-                  </svg>
-                </label>
-            </StyledWrapper> */}
             <NavMobile />
           </div>
         </div>
