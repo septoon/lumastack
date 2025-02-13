@@ -1,15 +1,19 @@
 'use client';
 
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { TextDecrypt } from '../../common/Text/TextDecrypt';
-import { StyledWrapper } from './Burger';
 import { scrollToSection } from '@/app/common/scrollToSection';
 import { NavMobile } from './nav-mobile';
 import { navigation } from '@/app/common/navigation';
 import { NavDesktop } from './nav-desktop';
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface HeaderProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Header: React.FC<HeaderProps> = ({ isOpen, setIsOpen }) => {
+
   const [activeNav, setActiveNav] = useState<string>('#home');
 
   const toggleMenu = () => {
@@ -40,31 +44,10 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
-            <NavMobile />
+            <NavMobile isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden absolute top-full left-4 right-4 mt-2">
-            <div className="bg-white/60 dark:bg-black/60 rounded-2xl shadow-lg py-2">
-              {navigation.map((item) => (
-                <a
-                  key={item.title}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setActiveNav(item.href);
-                    scrollToSection(item.href);
-                    setIsOpen(false);
-                  }}
-                  className="block px-4 py-2 text-base font-medium text-gray hover:bg-gray-50 hover:text-gray-900 transition-colors">
-                  {item.title}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
       </nav>
     </header>
   );

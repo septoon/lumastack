@@ -1,14 +1,20 @@
+'use client'
+
 import Content from "./components/Content/Content";
 import Contact from "./components/Contact/Contact";
 import Header from "./components/Header/Header";
 import Skills from "./components/Skills/Skills";
 import Works from "./components/Works/Works";
 import About from "./components/About/About";
+import { useState } from "react";
 
 export default function Home() {
+    const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex flex-col z-10 snap-y snap-mandatory scroll-smooth px-28 sm:px-12">
-      <Header />
+      <Header isOpen={isOpen} setIsOpen={setIsOpen} />
+      <div className={`${isOpen ? 'absolute left-0 right-0 top-0 bottom-0 z-40 bg-white/50 dark:bg-black/50 backdrop-blur-md' : ''}`}></div>
+     
       <main id="home" className="h-screen snap-start flex items-center justify-between bg-transparent">
         <Content />
       </main>

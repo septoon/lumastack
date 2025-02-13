@@ -1,10 +1,7 @@
 'use client';
 
 import React from 'react';
-import { TextDecrypt } from '../../common/Text/TextDecrypt';
 import Resume from '../../settings/resume.json';
-import { FirstName, LastName } from '../../utils/getName';
-import { scrollToSection } from '@/app/common/scrollToSection';
 import { TextTyping } from '@/app/common/Text/TextTyping';
 
 const Content: React.FC = () => {
