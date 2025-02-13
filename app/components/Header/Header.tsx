@@ -6,6 +6,7 @@ import { StyledWrapper } from './Burger';
 import { scrollToSection } from '@/app/common/scrollToSection';
 import { NavMobile } from './nav-mobile';
 import { navigation } from '@/app/common/navigation';
+import { NavDesktop } from './nav-desktop';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navigation.map((item) => (
+            {/* {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -49,7 +50,8 @@ const Header = () => {
                 <TextDecrypt text={item.name} />
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </a>
-            ))}
+            ))} */}
+            <NavDesktop />
           </div>
 
           {/* Mobile Menu Button */}
