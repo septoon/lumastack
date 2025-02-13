@@ -1,27 +1,27 @@
-import { BiHomeAlt2 } from "react-icons/bi";
-import { FiSearch } from "react-icons/fi";
-import { PiChatCircleBold } from "react-icons/pi";
-import { IoPricetagsOutline } from "react-icons/io5";
+import { CiMobile3 } from "react-icons/ci";;
+import { BsInfoCircle } from "react-icons/bs";
+import { MdBiotech } from "react-icons/md";
+import { FaWpforms } from "react-icons/fa";
 
 export const navigation = [
   {
     title: "Проекты",
     href: "#works",
-    Icon: BiHomeAlt2,
+    Icon: CiMobile3,
   },
   {
     title: "О нас",
     href: "#about",
-    Icon: FiSearch,
+    Icon: BsInfoCircle,
   },
   {
     title: "Технологии",
     href: "#skills",
-    Icon: IoPricetagsOutline,
+    Icon: MdBiotech,
   },
   {
     title: "Связаться",
     href: "#contact",
-    Icon: PiChatCircleBold,
+    Icon: FaWpforms,
   },
 ];
