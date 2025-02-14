@@ -12,7 +12,7 @@ interface NavMobileProps {
 export const NavMobile: React.FC<NavMobileProps> = ({ isOpen, setIsOpen }) => {
   const ref = useRef(null);
 
-  useClickAway(ref, () => setOpen(false));
+  useClickAway(ref, () => setIsOpen(false));
 
   return (
     <div ref={ref} className="lg:hidden ">

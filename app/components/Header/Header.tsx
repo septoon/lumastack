@@ -16,10 +16,6 @@ const Header: React.FC<HeaderProps> = ({ isOpen, setIsOpen }) => {
 
   const [activeNav, setActiveNav] = useState<string>('#home');
 
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-  };
-
   return (
     <header className="fixed top-4 left-0 right-0 z-50 px-4">
       <nav className="max-w-5xl mx-auto bg-white/60 dark:bg-black/60 backdrop-blur-md rounded-full shadow-sm">
