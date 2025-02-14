@@ -2,9 +2,7 @@
 
 import React, { useState } from 'react';
 import { TextDecrypt } from '../../common/Text/TextDecrypt';
-import { scrollToSection } from '@/app/common/scrollToSection';
 import { NavMobile } from './nav-mobile';
-import { navigation } from '@/app/common/navigation';
 import { NavDesktop } from './nav-desktop';
 
 interface HeaderProps {

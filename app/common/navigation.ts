@@ -1,6 +1,6 @@
 import { CiMobile3 } from "react-icons/ci";;
 import { BsInfoCircle } from "react-icons/bs";
-import { MdBiotech } from "react-icons/md";
+import { IoPricetagsOutline } from "react-icons/io5";
 import { FaWpforms } from "react-icons/fa";
 
 export const navigation = [
@@ -15,9 +15,9 @@ export const navigation = [
     Icon: BsInfoCircle,
   },
   {
-    title: "Технологии",
-    href: "#skills",
-    Icon: MdBiotech,
+    title: "Услуги",
+    href: "#services",
+    Icon: IoPricetagsOutline,
   },
   {
     title: "Связаться",

@@ -1,16 +1,14 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { InputMask, useMask } from '@react-input/mask';
+import { useMask } from '@react-input/mask';
 import axios from 'axios';
 import * as UAParser from 'ua-parser-js';
-import { TextDecrypt } from '../../common/Text/TextDecrypt';
 
-// Компонент успешной отправки
 function SuccessPopup() {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 animate-fadeIn">
-      <div className="bg-white rounded-lg p-8 max-w-sm mx-4 relative animate-slideUp">
+      <div className="bg-white dark:bg-darkGray rounded-lg p-8 max-w-sm mx-4 relative animate-slideUp">
         <div className="absolute -top-12 left-1/2 -translate-x-1/2">
           <div className="bg-green-100 rounded-full p-3">
             <svg
