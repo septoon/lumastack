@@ -18,7 +18,7 @@ const Works = () => {
             id: 1,
             title: 'Студия лазерной эпиляции',
             description: 'Лендинг с функцией записи на прием и админ-панелью',
-            image: '/images/empire.png',
+            image: '/images/empire.webp',
             tech: 'ReactJS',
             url: "https://imperia-siyaniya.ru/"
           },
@@ -26,7 +26,7 @@ const Works = () => {
             id: 2,
             title: 'Сайт доставки еды',
             description: 'Полноценный сервис для заказа еды с личным кабинетом',
-            image: '/images/shd.png',
+            image: '/images/shd.webp',
             tech: 'NextJS',
             url: "https://shashlichny-dom.ru/"
           },
@@ -34,7 +34,7 @@ const Works = () => {
             id: 3,
             title: 'Админ-панель',
             description: 'Панель управления для сайта доставки с интеграцией Telegram',
-            image: !prefersDark ? '/images/shd-admin.png' : '/images/shd-admin-dark.png',
+            image: !prefersDark ? '/images/shd-admin.webp' : '/images/shd-admin-dark.webp',
             tech: 'ReactJS + Telegram Mini App',
             url: "https://github.com/septoon/admin-shd"
           },
@@ -42,7 +42,7 @@ const Works = () => {
             id: 4,
             title: 'Мобильное приложение',
             description: 'Нативное приложение для доставки еды',
-            image: !prefersDark ? '/images/shd-app.png' : '/images/shd-app-dark.png',
+            image: !prefersDark ? '/images/shd-app.webp' : '/images/shd-app-dark.webp',
             tech: 'React Native/SwiftUI',
             url: "https://www.rustore.ru/catalog/app/com.septon.shdapp"
           },
@@ -50,7 +50,7 @@ const Works = () => {
             id: 5,
             title: 'Нейро фотосессии',
             description: 'Сервис для генерации фотографий с помощью AI',
-            image: '/images/neuro.png',
+            image: '/images/neuro.webp',
             tech: 'Next.js + AI API',
             url: ""
           },
@@ -58,7 +58,7 @@ const Works = () => {
             id: 6,
             title: 'Генерация видео',
             description: 'Платформа для создания видеоконтента с помощью нейросетей',
-            video: '/videos/sample.MP4',
+            video: '/videos/sample.webm',
             tech: 'React + AI Integration',
             url: ""
           },
