@@ -1,8 +1,12 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 
 const Works = () => {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+  const [prefersDark, setPrefersDark] = useState(false);
+
+  useEffect(() => {
+    setPrefersDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }, []);
   return (
     <div
     className={`min-h-screen w-full items-center py-24 opacity-0 animate-slideUp`}>
