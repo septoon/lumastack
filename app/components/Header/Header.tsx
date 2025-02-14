@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { TextDecrypt } from '../../common/Text/TextDecrypt';
 import { NavMobile } from './nav-mobile';
 import { NavDesktop } from './nav-desktop';
 
@@ -28,7 +27,8 @@ const Header: React.FC<HeaderProps> = ({ isOpen, setIsOpen }) => {
             className={`text-xl font-semibold hover:text-gray-600 transition-colors ${
               activeNav === '#home' ? 'text-[#ec704c]' : 'text-[#575757]'
             }`}>
-            <TextDecrypt text="Techno Art" />
+            {/* <TextDecrypt text="Techno Art" /> */}
+            Techno Art
           </a>
 
           {/* Desktop Navigation */}

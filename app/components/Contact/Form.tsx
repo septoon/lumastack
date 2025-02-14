@@ -187,7 +187,7 @@ const Form: React.FC = () => {
               placeholder="Имя *"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c] ${
+              className={`w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c] ${
                 errors.name ? 'border-red-300' : 'border-gray-300'
               }`}
             />
@@ -197,7 +197,7 @@ const Form: React.FC = () => {
               ref={inputRef}
               value={formData.phone}
               onChange={handlePhoneChange}
-              className={`block w-full p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500 ${
+              className={`block dark:placeholder-white/80 w-full p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500 ${
                 errors.phone ? 'border-red-300' : 'border-gray-300'
               }`}
               placeholder="+7 (___) ___-__-__"
@@ -217,7 +217,7 @@ const Form: React.FC = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Сообщение"
-              className="w-full p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
+              className="w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
             />
 
             <button
