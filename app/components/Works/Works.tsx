@@ -54,7 +54,7 @@ const Works = () => {
             id: 6,
             title: 'Генерация видео',
             description: 'Платформа для создания видеоконтента с помощью нейросетей',
-            image: '/images/.png',
+            video: '/videos/sample.MP4',
             tech: 'React + AI Integration',
             url: ""
           },
@@ -66,11 +66,21 @@ const Works = () => {
             style={{ animationDelay: `${index * 0.15}s` }}>
               <a target="_blank" href={project.url}>
                 <div className="relative h-48 overflow-hidden flex justify-center items-center">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-[90%] object-cover transform group-hover:scale-110 transition-transform duration-300"
-                  />
+                {project.video ? (
+                    <video
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      className="h-[90%] object-cover transform group-hover:scale-110 transition-transform duration-300 shadow-md"
+                    />
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-[90%] object-cover transform group-hover:scale-110 transition-transform duration-300 shadow-md"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <p className="text-sm font-medium">{project.tech}</p>
