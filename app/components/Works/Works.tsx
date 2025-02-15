@@ -21,7 +21,7 @@ const Works = () => {
   return (
     <div
       ref={worksRef}
-      className={`min-h-screen py-24 opacity-0 ${
+      className={`min-h-screen py-24 w-full justify-center opacity-0 ${
         hasAnimated ? 'animate-slideUp opacity-100' : ''
       }`}
     >
