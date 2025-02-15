@@ -33,7 +33,9 @@ export const TextTyping: React.FC<TextTypingProps> = ({ text, speed = 10 }) => {
   }, []);
 
   return (
-    <span className="font-mono">
+    <span className="font-mono bg-clip-text text-transparent 
+          bg-gradient-to-r from-subGradientLight1 via-subGradientLight2 to-subGradientLight3 
+          dark:from-subGradientDark1 dark:via-subGradientDark2 dark:to-subGradientDark3 ">
       {displayText}
       <span className={`transition-opacity duration-300 ${showCursor ? "opacity-100" : "opacity-0"}`}>
         |
