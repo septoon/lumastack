@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, RefObject } from 'react';
 
-export function useInView(options = {}) {
-  const ref = useRef(null);
+export function useInView<T extends HTMLElement = HTMLDivElement>(options = {}): [RefObject<T>, boolean] {
+  const ref = useRef<T>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -27,4 +27,4 @@ export function useInView(options = {}) {
   }, []);
 
   return [ref, isInView];
-} 
+}
