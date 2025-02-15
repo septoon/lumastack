@@ -58,7 +58,7 @@ const Works = () => {
             id: 6,
             title: 'Генерация видео',
             description: 'Платформа для создания видеоконтента с помощью нейросетей',
-            video: '/videos/sample.webm',
+            video: '/videos/sample.mp4',
             tech: 'React + AI Integration',
             url: ""
           },
