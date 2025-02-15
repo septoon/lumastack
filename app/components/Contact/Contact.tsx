@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
   return (
     <div className="flex flex-col md:flex-row w-full h-screen">
       {/* Левая половина (Форма) */}
-      <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center p-0 md:p-8 sm:px-4">
+      <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-end lg:items-center justify-center p-0 md:p-8 sm:px-4">
         <Form />
       </div>
 

@@ -19,7 +19,7 @@ const Works = () => {
             title: 'Студия лазерной эпиляции',
             description: 'Лендинг с функцией записи на прием и админ-панелью',
             image: '/images/empire.webp',
-            tech: 'ReactJS',
+            tech: 'NextJS',
             url: "https://imperia-siyaniya.ru/"
           },
           {
@@ -51,7 +51,7 @@ const Works = () => {
             title: 'Нейро фотосессии',
             description: 'Сервис для генерации фотографий с помощью AI',
             image: '/images/neuro.webp',
-            tech: 'Next.js + AI API',
+            tech: 'Flux + AI API',
             url: ""
           },
           {
@@ -59,7 +59,7 @@ const Works = () => {
             title: 'Генерация видео',
             description: 'Платформа для создания видеоконтента с помощью нейросетей',
             video: '/videos/sample.mp4',
-            tech: 'React + AI Integration',
+            tech: 'Kling + AI Integration',
             url: ""
           },
         ].map((project, index) => (
