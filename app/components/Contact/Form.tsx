@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useMask } from '@react-input/mask';
 import axios from 'axios';
 import * as UAParser from 'ua-parser-js';
+import { services } from '@/app/common/api/services';
 
 function SuccessPopup() {
   return (
@@ -16,12 +17,7 @@ function SuccessPopup() {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
         </div>
@@ -38,11 +34,13 @@ const Form: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
+    service: '', // Выбранная услуга
     message: '',
   });
   const [errors, setErrors] = useState({
     name: false,
     phone: false,
+    service: false,
   });
 
   const inputRef = useMask({
@@ -70,9 +68,7 @@ const Form: React.FC = () => {
       browser: `${result.browser.name || ''} ${result.browser.version || ''}`.trim(),
       os: `${result.os.name || ''} ${result.os.version || ''}`.trim(),
       device: result.device.type
-        ? `${result.device.vendor || ''} ${result.device.model || ''} (${
-            result.device.type
-          })`.trim()
+        ? `${result.device.vendor || ''} ${result.device.model || ''} (${result.device.type})`.trim()
         : 'Desktop',
     });
   }, []);
@@ -86,7 +82,11 @@ const Form: React.FC = () => {
     return value.trim().length >= 2;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const validateService = (value: string) => {
+    return value.trim().length > 0;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -101,20 +101,6 @@ const Form: React.FC = () => {
     }
   };
 
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setFormData((prev) => ({
-      ...prev,
-      phone: value,
-    }));
-    if (errors.phone) {
-      setErrors((prev) => ({
-        ...prev,
-        phone: false,
-      }));
-    }
-  };
-
   const sendToTelegram = async (data: typeof formData) => {
     const token = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN;
     const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_ID;
@@ -125,7 +111,8 @@ const Form: React.FC = () => {
 
 👤 Имя: ${data.name}
 📱 Телефон: ${data.phone}
-💬 Сообщение: ${data.message || 'Не указано'}
+🛠 Услуга: ${data.service}
+💬 Комментарий: ${data.message || 'Не указан'}
 
 📱 Информация об устройстве:
 • Браузер: ${deviceInfo.browser}
@@ -154,6 +141,7 @@ const Form: React.FC = () => {
     const newErrors = {
       name: !validateName(formData.name),
       phone: !validatePhone(formData.phone),
+      service: !validateService(formData.service),
     };
 
     setErrors(newErrors);
@@ -167,7 +155,7 @@ const Form: React.FC = () => {
     try {
       const success = await sendToTelegram(formData);
       if (success) {
-        setFormData({ name: '', phone: '', message: '' });
+        setFormData({ name: '', phone: '', service: '', message: '' });
         setShowSuccessPopup(true);
         setTimeout(() => setShowSuccessPopup(false), 3000);
       }
@@ -177,58 +165,64 @@ const Form: React.FC = () => {
   };
 
   return (
-
     <div className="flex rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-[rgba(255,255,255,0.51)] h-auto p-[2em] w-1/2 sm:w-full">
       <form onSubmit={handleSubmit} className="flex flex-col w-full space-y-4">
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Имя *"
-              value={formData.name}
-              onChange={handleChange}
-              className={`w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c] ${
-                errors.name ? 'border-red-300' : 'border-gray-300'
-              }`}
-            />
-            {errors.name && <p className="mt-1 text-sm text-red">Введите имя (минимум 2 символа)</p>}
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Имя *"
+          value={formData.name}
+          onChange={handleChange}
+          className={`w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c] ${
+            errors.name ? 'border-red-300' : 'border-gray-300'
+          }`}
+        />
+        {errors.name && <p className="mt-1 text-sm text-red">Введите имя (минимум 2 символа)</p>}
 
-            <input
-              ref={inputRef}
-              value={formData.phone}
-              onChange={handlePhoneChange}
-              className={`block dark:placeholder-white/80 w-full p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500 ${
-                errors.phone ? 'border-red-300' : 'border-gray-300'
-              }`}
-              placeholder="+7 (___) ___-__-__"
-              type="tel"
-              inputMode="numeric"
-              id="phone"
-              name="phone"
-            />
-            {errors.phone && (
-              <p className="mt-1 text-sm text-red">Введите корректный номер телефона</p>
-            )}
+        <input
+          ref={inputRef}
+          value={formData.phone}
+          onChange={handleChange}
+          className={`block dark:placeholder-white/80 w-full p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500 ${
+            errors.phone ? 'border-red-300' : 'border-gray-300'
+          }`}
+          placeholder="+7 (___) ___-__-__"
+          type="tel"
+          inputMode="numeric"
+          id="phone"
+          name="phone"
+        />
+        {errors.phone && <p className="mt-1 text-sm text-red">Введите корректный номер телефона</p>}
 
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Сообщение"
-              className="w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
-            />
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full p-2 bg-black text-white rounded ${
-                errors.name || errors.phone ? 'bg-red' : 'bg-black'
-              }`}>
-              {isSubmitting ? 'Отправка...' : '>_ Отправить'}
-            </button>
-            {showSuccessPopup && <SuccessPopup />}
+        <select
+          id="service"
+          name="service"
+          value={formData.service}
+          onChange={handleChange}
+          className="w-full dark:text-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
+        >
+          <option value="">Выберите услугу *</option>
+          {services.map((service) => (
+            <option key={service.id} value={service.service_name}>
+              {service.service_name}
+            </option>
+          ))}
+        </select>
+        {errors.service && <p className="mt-1 text-sm text-red">Выберите услугу</p>}
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Комментарий"
+          className="w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
+        />
+        <button type="submit" disabled={isSubmitting} className="w-full p-2 bg-black text-white rounded">
+          {isSubmitting ? 'Отправка...' : '>_ Отправить'}
+        </button>
+        {showSuccessPopup && <SuccessPopup />}
       </form>
     </div>
   );
