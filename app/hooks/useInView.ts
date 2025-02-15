@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, RefObject } from 'react';
 
 export function useInView<T extends HTMLElement = HTMLDivElement>(options = {}): [RefObject<T>, boolean] {
-  const ref = useRef<T>(null);
+  const ref = useRef<T | null>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -26,5 +26,5 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(options = {}):
     };
   }, []);
 
-  return [ref, isInView];
+  return [ref as RefObject<T>, isInView];
 }
