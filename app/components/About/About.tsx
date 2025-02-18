@@ -21,7 +21,7 @@ const About = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold mb-8">О нас</h2>
+        <h2 className="text-3xl font-unbounded font-bold mb-8">О нас</h2>
         <div className="prose lg:prose-xl max-w-none">
           <p className="mb-6 text-lg text-gray">
             Студия "Techno Art" из Алушты — это сообщество энтузиастов, которые верят в силу

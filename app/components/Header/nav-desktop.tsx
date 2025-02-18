@@ -9,7 +9,7 @@ export const NavDesktop = () => {
           <li key={route.title}>
             <a
               href={href}
-              className="flex items-center gap-1 hover:text-neutral-400 transition-all">
+              className="flex items-center gap-1 font-unbounded font-light hover:text-neutral-400 transition-all">
               <Icon />
               {title}
             </a>

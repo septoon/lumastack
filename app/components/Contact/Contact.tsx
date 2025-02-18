@@ -31,8 +31,8 @@ const Contact: React.FC = () => {
 
       {/* Правая половина (Текст) */}
       <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-8">
-        <h1 className="text-5xl font-extrabold text-center">
-          <TextDecrypt text="Закажи Сейчас" />
+        <h1 className="text-5xl font-unbounded font-extrabold text-center ">
+            Оставьте заявку!
         </h1>
       </div>
     </div>

@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ isOpen, setIsOpen }) => {
               setActiveNav('#home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className={`text-xl font-semibold hover:text-gray-600 transition-colors ${
+            className={`text-xl font-unbounded font-semibold hover:text-gray-600 transition-colors ${
               activeNav === '#home' ? 'text-[#ec704c]' : 'text-[#575757]'
             }`}>
             {/* <TextDecrypt text="Techno Art" /> */}

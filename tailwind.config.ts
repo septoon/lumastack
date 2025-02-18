@@ -127,6 +127,11 @@ module.exports = {
       },
       fontFamily: {
         comfortaa: ['Comfortaa', 'sans-serif'],
+        unbounded: ['Unbounded', 'sans-serif'],
+      },
+      fontSize: {
+        '7xl': '5.5rem', // Произвольный пример
+        '10xl': '10rem',   // Ещё больше
       },
       colors: {
         background: "var(--background)",

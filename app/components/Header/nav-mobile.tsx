@@ -47,7 +47,7 @@ export const NavMobile: React.FC<NavMobileProps> = ({ isOpen, setIsOpen }) => {
                         'flex items-center justify-between w-full p-5 rounded-xl bg-white/60 dark:bg-black/60'
                       }
                       href={route.href}>
-                      <span className="flex gap-1 text-lg">{route.title}</span>
+                      <span className="flex gap-1 font-unbounded font-normal text-lg">{route.title}</span>
                       <Icon className="text-xl" />
                     </a>
                   </motion.li>
