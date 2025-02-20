@@ -35,7 +35,7 @@ export default function Home() {
       <Contact />
       </section>
       <footer className="bg-transparent snap-start relative z-10 text-center py-4">
-        <p>© 2024 Altman Dev Studio. All rights reserved.</p>
+        <p>© 2024 Techno Art Studio. All rights reserved.</p>
       </footer>
     </div>
   );

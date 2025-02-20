@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Resume from '../../settings/resume.json';
 import { TextTyping } from '@/app/common/Text/TextTyping';
 import OrderModal from '../Modal/OrderModal';
+import Spline from '@splinetool/react-spline/next';
 
 const Content: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
