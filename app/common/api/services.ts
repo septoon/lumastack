@@ -44,7 +44,7 @@ export const services = [
     "service_name": "Создание нейро-видео",
     "description": "Создание анимированного или синтезированного видео",
     "price": "от 300 руб.",
-    "execution_time": "1 денья",
+    "execution_time": "1 день",
     "technologies": ["Kling", "After Effects", "Premiere Pro"]
   },
   {
