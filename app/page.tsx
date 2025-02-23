@@ -18,6 +18,8 @@ export default function Home() {
       <TelegramButton />
       <main id="home" className="h-screen snap-start flex items-center justify-between bg-transparent">
         <Content />
+        <div className="fixed bottom-0 left-0 w-auto">
+        </div>
       </main>
       <section id="works" className="min-h-screen snap-start flex">
         <Works />
@@ -35,7 +37,7 @@ export default function Home() {
       <Contact />
       </section>
       <footer className="bg-transparent snap-start relative z-10 text-center py-4">
-        <p>© 2024 Techno Art Studio. All rights reserved.</p>
+        <p>© 2024 LumaStack Studio. All rights reserved.</p>
       </footer>
     </div>
   );

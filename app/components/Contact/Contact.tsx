@@ -2,8 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import Form from './Form';
-import { TextTyping } from '@/app/common/Text/TextTyping';
-import { TextDecrypt } from '@/app/common/Text/TextDecrypt';
 import { useInView } from '@/app/hooks/useInView';
 
 const Contact: React.FC = () => {

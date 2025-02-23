@@ -7,7 +7,6 @@ const Works = () => {
   const [worksRef, worksInView] = useInView<HTMLDivElement>();
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  // Следим за появлением компонента в зоне видимости и устанавливаем флаг
   useEffect(() => {
     if (worksInView && !hasAnimated) {
       setHasAnimated(true);
@@ -41,7 +40,7 @@ const Works = () => {
               id: 2,
               title: 'Сайт доставки еды',
               description: 'Полноценный сервис для заказа еды с личным кабинетом',
-              image: '/images/shd.webp',
+              image: '/images/shd-web.webp',
               tech: 'NextJS',
               url: "https://shashlichny-dom.ru/"
             },
@@ -57,7 +56,7 @@ const Works = () => {
               id: 4,
               title: 'Мобильное приложение',
               description: 'Нативное приложение для доставки еды',
-              image: !prefersDark ? '/images/shd-app.webp' : '/images/shd-app-dark.webp',
+              image: !prefersDark ? '/images/shd-light.webp' : '/images/shd-dark.webp',
               tech: 'React Native/SwiftUI',
               url: "https://www.rustore.ru/catalog/app/com.septon.shdapp"
             },
@@ -73,7 +72,7 @@ const Works = () => {
               id: 6,
               title: 'Генерация видео',
               description: 'Платформа для создания видеоконтента с помощью нейросетей',
-              video: '/videos/sample.mp4',
+              video: '/videos/sample1.webm',
               tech: 'Kling + AI Integration',
               url: ""
             },
@@ -94,18 +93,19 @@ const Works = () => {
                       autoPlay
                       loop
                       muted
-                      className="h-[90%] object-cover transition-transform duration-300 shadow-md"
+                      playsInline
+                      className="h-[90%] object-cover transition-transform duration-300 shadow-md rounded-lg transform hover:scale-105"
                     />
                   ) : (
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="h-[90%] object-cover transition-transform duration-300 shadow-md"
+                      className="h-[90%] object-cover transition-transform duration-300 rounded-lg transform hover:scale-105"
                     />
                   )}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">
+                  <h3 className="text-lg font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-gray">{project.description}</p>
