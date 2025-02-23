@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Resume from '../../settings/resume.json';
 import { TextTyping } from '@/app/common/Text/TextTyping';
 import OrderModal from '../Modal/OrderModal';
 
