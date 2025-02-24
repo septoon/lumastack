@@ -8,6 +8,7 @@ import About from "./components/About/About";
 import { useState } from "react";
 import TelegramButton from "./components/TelegramButton/TelegramButton";
 import Services from "./components/Services/Services";
+import Footer from "./components/Footer/Footer";
 
 export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +38,7 @@ export default function Home() {
       <section id="contact" className="min-h-screen snap-start flex w-full">
       <Contact />
       </section>
-      <footer className="bg-transparent snap-start relative z-10 text-center py-4">
-        <p>© 2024 LumaStack Studio. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

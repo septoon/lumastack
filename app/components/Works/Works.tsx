@@ -6,16 +6,18 @@ const Works = () => {
   const [prefersDark, setPrefersDark] = useState(false);
   const [worksRef, worksInView] = useInView<HTMLDivElement>();
   const [hasAnimated, setHasAnimated] = useState(false);
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setPrefersDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+  }, []);
 
   useEffect(() => {
     if (worksInView && !hasAnimated) {
       setHasAnimated(true);
     }
-  }, [worksInView, hasAnimated]);
-  
-  useEffect(() => {
-    setPrefersDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
-  }, []);
+  }, [worksInView]);
 
   return (
     <div

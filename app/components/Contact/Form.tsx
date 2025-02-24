@@ -4,7 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { useMask } from '@react-input/mask';
 import axios from 'axios';
 import * as UAParser from 'ua-parser-js';
-import { services } from '@/app/common/api/services';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchServices } from '@/app/GlobalRedux/Features/servicesSlice';
+import { RootState } from '@/app/GlobalRedux/store';
 
 function SuccessPopup() {
   return (
@@ -31,6 +33,9 @@ function SuccessPopup() {
 }
 
 const Form: React.FC = () => {
+  const dispatch = useDispatch();
+  const services = useSelector((state: RootState) => state.services.services);
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -71,7 +76,8 @@ const Form: React.FC = () => {
         ? `${result.device.vendor || ''} ${result.device.model || ''} (${result.device.type})`.trim()
         : 'Desktop',
     });
-  }, []);
+    dispatch(fetchServices());
+  }, [dispatch]);
 
   const validatePhone = (value: string) => {
     const digitsOnly = value.replace(/\D/g, '');

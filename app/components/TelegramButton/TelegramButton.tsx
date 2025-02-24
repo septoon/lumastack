@@ -7,7 +7,7 @@ const TelegramButton = () => {
       href={process.env.NEXT_PUBLIC_TELEGRAM_BOT_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 group"
+      className="fixed bottom-6 right-6 z-20 group"
       aria-label="Открыть чат с ботом">
       <div className="relative">
         {/* Основная кнопка */}

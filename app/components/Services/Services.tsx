@@ -1,17 +1,40 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { services } from '@/app/common/api/services';
 import { useInView } from '@/app/hooks/useInView';
+import Preloader from '../Preloader/Preloader';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from '@/app/GlobalRedux/store';
+import { RootState } from '@/app/GlobalRedux/store';
+import { fetchServices } from '@/app/GlobalRedux/Features/servicesSlice';
 
 const Services = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const services = useSelector((state: RootState) => state.services.services);
+  const loading = useSelector((state: RootState) => state.services.loading);
+  
   const [servicesRef, servicesInView] = useInView<HTMLDivElement>();
   const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchServices());
+  }, [dispatch])
 
   useEffect(() => {
     if (servicesInView && !hasAnimated) {
       setHasAnimated(true);
     }
   }, [servicesInView, hasAnimated]);
+
+  useEffect(() => {
+    if (!loading && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [loading, hasAnimated]);
+
+  if (loading) {
+    return <Preloader />
+  }
 
   return (
     <div
