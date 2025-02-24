@@ -7,7 +7,6 @@ const Services = () => {
   const [servicesRef, servicesInView] = useInView<HTMLDivElement>();
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  // Следим за появлением компонента в зоне видимости и устанавливаем флаг
   useEffect(() => {
     if (servicesInView && !hasAnimated) {
       setHasAnimated(true);
@@ -34,6 +33,7 @@ const Services = () => {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="w-full h-full flex flex-col justify-between items-start">
+                <img src={serv.image} alt={serv.service_name} className='w-full rounded-md mb-4'/>
                 <h3 className="text-xl text-gray font-semibold mb-3">
                   {serv.service_name}
                 </h3>
