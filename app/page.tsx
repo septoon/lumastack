@@ -21,16 +21,17 @@ export default function Home() {
         <div className="fixed bottom-0 left-0 w-auto">
         </div>
       </main>
+
+      <section id="services" className="min-h-screen snap-start flex">
+        <Services />
+      </section>
+      
       <section id="works" className="min-h-screen snap-start flex">
         <Works />
       </section>
 
       <section id="about" className="min-h-screen snap-start flex">
         <About />
-      </section>
-
-      <section id="services" className="min-h-screen snap-start flex">
-        <Services />
       </section>
 
       <section id="contact" className="min-h-screen snap-start flex w-full">

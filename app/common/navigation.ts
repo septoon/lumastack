@@ -5,6 +5,11 @@ import { FaWpforms } from "react-icons/fa";
 
 export const navigation = [
   {
+    title: "Услуги",
+    href: "#services",
+    Icon: IoPricetagsOutline,
+  },
+  {
     title: "Проекты",
     href: "#works",
     Icon: CiMobile3,
@@ -13,11 +18,6 @@ export const navigation = [
     title: "О нас",
     href: "#about",
     Icon: BsInfoCircle,
-  },
-  {
-    title: "Услуги",
-    href: "#services",
-    Icon: IoPricetagsOutline,
   },
   {
     title: "Связаться",

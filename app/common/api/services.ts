@@ -1,96 +1,104 @@
 export const services = [
   {
     "id": 1,
-    "service_name": "Разработка лендинга",
-    "description": "Создание одностраничного сайта для презентации продукта или услуги",
+    "service_name": "Сайт-визитка",
+    "description": "Простой сайт с краткой информацией о компании, услуге или товаре. Дизайн на основе шаблона, быстрая разработка.",
     "price": "от 20 000 руб.",
-    "execution_time": "от 10 дней",
+    "execution_time": "2-3 недели",
     "technologies": ["Next.js", "React", "Tailwind CSS"]
   },
   {
     "id": 2,
-    "service_name": "Создание корпоративного сайта",
-    "description": "Разработка сайта для бизнеса с информационными страницами",
-    "price": "от 40 000 руб.",
-    "execution_time": "от 15 дней",
+    "service_name": "Интернет-каталог",
+    "description": "Сайт с перечнем товаров или услуг, удобная система навигации. Возможность добавить корзину для оформления заказов.",
+    "price": "от 30 000 руб.",
+    "execution_time": "2-3 недели",
     "technologies": ["Next.js", "React", "Tailwind CSS"]
   },
   {
     "id": 3,
-    "service_name": "Разработка интернет-магазина",
-    "description": "Создание интернет-магазина с каталогом товаров и системой оплаты",
-    "price": "от 50 000 руб.",
-    "execution_time": "от 20 дней",
+    "service_name": "Landing Page",
+    "description": "Одностраничный сайт для презентации продукта или услуги. Современный дизайн, акцент на конверсии, рекламные баннеры.",
+    "price": "от 15 000 руб.",
+    "execution_time": "1-2 недели",
     "technologies": ["Next.js", "React", "Tailwind CSS"]
   },
   {
     "id": 4,
+    "service_name": "Интернет-магазин",
+    "description": "Полноценный сайт для онлайн-продаж. Удобная корзина, оформление заказов, базовая графика для комфортного восприятия.",
+    "price": "от 30 000 руб.",
+    "execution_time": "1-2 недели",
+    "technologies": ["Next.js", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 5,
     "service_name": "Мобильное приложение (iOS/Android)",
-    "description": "Разработка мобильного приложения под iOS и Android",
+    "description": "Разработка нативного или кроссплатформенного мобильного приложения. Функционал под заказ, удобный UI/UX.",
     "price": "от 80 000 руб.",
     "execution_time": "от 30 дней",
     "technologies": ["React Native", "SwiftUI"]
   },
   {
-    "id": 5,
+    "id": 6,
     "service_name": "Генерация нейро-фотографий (80 фото)",
-    "description": "Генерация уникальных изображений с помощью нейросетей",
+    "description": "Создание уникальных изображений на основе ИИ. Качественные фото в разных стилях и форматах.",
     "price": "700 руб.",
     "execution_time": "1 день",
     "technologies": ["Stable Diffusion", "Flux", "Photoshop"]
   },
   {
-    "id": 6,
+    "id": 7,
     "service_name": "Создание нейро-видео",
-    "description": "Создание анимированного или синтезированного видео",
+    "description": "Генерация анимированных или синтезированных видеороликов. Возможность адаптации под разные задачи.",
     "price": "от 300 руб.",
     "execution_time": "1 день",
     "technologies": ["Kling", "After Effects", "Premiere Pro"]
   },
   {
-    "id": 7,
+    "id": 8,
     "service_name": "Генерация голоса и дубляж",
-    "description": "Генерация синтетического голоса для видео, подкастов и дубляжа",
+    "description": "Создание синтетического голоса для видео, подкастов и дубляжа. Естественное звучание, адаптация под контекст.",
     "price": "1000 руб. за минуту",
     "execution_time": "1-2 дня",
     "technologies": ["AI Voice Generation", "ElevenLabs", "Adobe Audition"]
   },
   {
-    "id": 8,
+    "id": 9,
     "service_name": "Перевод и озвучка видео",
-    "description": "Перевод видео с автоматической синхронизацией голоса",
+    "description": "Автоматический перевод с адаптацией голоса под оригинальное звучание. Высокая точность синхронизации.",
     "price": "500 руб. за минуту",
     "execution_time": "1 день",
     "technologies": ["AI Translation", "Whisper", "HeyGen", "Premiere Pro"]
   },
   {
-    "id": 9,
+    "id": 10,
     "service_name": "SEO-оптимизация",
-    "description": "Оптимизация сайтов для поисковых систем, повышение ранжирования",
+    "description": "Продвижение сайта в поисковых системах. Улучшение позиций и увеличение органического трафика.",
     "price": "10 000 руб.",
     "execution_time": "от 3 дней",
     "technologies": ["Google Search Console", "Яндекс.Вебмастер"]
   },
   {
-    "id": 10,
+    "id": 11,
     "service_name": "Техническая поддержка сайтов",
-    "description": "Обслуживание сайтов, исправление ошибок, обновление контента",
-    "price": "от 3 000 в месяц руб.",
+    "description": "Обслуживание сайта, устранение ошибок, обновление контента, мониторинг работы сервера.",
+    "price": "от 3 000 руб. в месяц",
     "execution_time": "по договоренности",
     "technologies": ["Next.js", "React", "Docker", "Nginx"]
   },
   {
-    "id": 11,
+    "id": 12,
     "service_name": "Интеграция платежных систем",
-    "description": "Подключение онлайн-оплаты через YooMoney, Tinkoff",
+    "description": "Подключение сервисов онлайн-оплаты: YooMoney, Tinkoff, PayPal. Безопасные платежи, удобный процессинг.",
     "price": "15 000 руб.",
     "execution_time": "от 5 дней",
     "technologies": ["YooMoney API", "Tinkoff API", "PayPal API"]
   },
   {
-    "id": 12,
+    "id": 13,
     "service_name": "Создание чат-ботов",
-    "description": "Разработка умных ботов для Telegram, WhatsApp и других платформ",
+    "description": "Разработка ботов для Telegram, WhatsApp и других платформ. Автоматизация процессов, интеграция с CRM.",
     "price": "5 000 руб.",
     "execution_time": "от 3 дней",
     "technologies": ["Telegram Bot API", "OpenAI API"]
