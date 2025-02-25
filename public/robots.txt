@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://lumastack.ru
+
+# Sitemaps
+Sitemap: https://lumastack.ru/sitemap.xml
