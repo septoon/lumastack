@@ -6,7 +6,7 @@ import axios from 'axios';
 import * as UAParser from 'ua-parser-js';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchServices } from '@/app/GlobalRedux/Features/servicesSlice';
-import { RootState } from '@/app/GlobalRedux/store';
+import { AppDispatch, RootState } from '@/app/GlobalRedux/store';
 
 function SuccessPopup() {
   return (
@@ -33,7 +33,7 @@ function SuccessPopup() {
 }
 
 const Form: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const services = useSelector((state: RootState) => state.services.services);
 
   const [formData, setFormData] = useState({
