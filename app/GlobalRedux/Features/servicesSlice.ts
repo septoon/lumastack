@@ -28,7 +28,7 @@ const initialState: ServicesState = {
 
 // Создание асинхронного действия для получения данных
 export const fetchServices = createAsyncThunk('services/fetchServices', async () => {
-  const response = await axios.get(`${NEXT_PUBLIC_API_URL}/services.json`);
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/services.json`);
   return response.data;
 });
 
