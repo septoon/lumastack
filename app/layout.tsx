@@ -20,7 +20,7 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+          content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"
         />
         <link
           rel="stylesheet"
@@ -39,8 +39,8 @@ export default function RootLayout({
         создать сайт, нейросеть, генерация фото, генерация видео, заказать чат бот, заказать сайт в Алуште, "
         />
 
-        <meta name="yandex-verification" content="" />
-        <meta name="google-site-verification" content="" />
+        <meta name="yandex-verification" content="0f256fcac62c421c" />
+        <meta name="google-site-verification" content="Q1YZzdstkjBtKW7UVGzp7GkNMYAwqY8TihJTvCcSqHI" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://lumastack.ru" />
         <meta property="og:title" content="LumaStack - Алушта" />

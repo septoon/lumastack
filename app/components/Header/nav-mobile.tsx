@@ -40,7 +40,8 @@ export const NavMobile: React.FC<NavMobileProps> = ({ isOpen, setIsOpen }) => {
                       delay: 0.1 + idx / 10,
                     }}
                     key={route.title}
-                    className="w-full p-[0.08rem] rounded-xl bg-gradient-to-tr dark:from-neutral-800/60 dark:via-neutral-950/60 dark:to-neutral-700/60 from-emerald-300/60 via-emerald-950/60 to-emerald-700/60">
+                    className="w-full p-[0.08rem] rounded-xl bg-gradient-to-tr dark:from-neutral-800/60 dark:via-neutral-950/60 dark:to-neutral-700/60 
+                    from-white/50 via-sky-200/60 to-teal-100/60">
                     <a
                       onClick={() => setIsOpen((prev) => !prev)}
                       className={

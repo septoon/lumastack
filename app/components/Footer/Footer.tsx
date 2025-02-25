@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-<footer className=" mb-6 p-4 bg-white/60 dark:bg-black/60 rounded-lg backdrop-blur-md shadow-lg z-40">
+<footer className=" mb-4 mx-2 p-4 bg-white/60 dark:bg-black/60 rounded-lg backdrop-blur-md shadow-lg z-40">
   <div className="container mx-auto max-w-6xl flex flex-col justify-between items-start">
     <div className="flex flex-col items-start">
       <p className="text-sm mb-2">Почта: <a href="mailto:contact@lumastack.ru" className="hover:text-gray underline">contact@lumastack.ru</a></p>
@@ -18,7 +18,7 @@ const Footer = () => {
     </div>
 
     <div className="flex justify-center mt-4 sm:mt-0 self-center">
-      <a href="https://lumastack.ru" className="text-sm font-semibold text-white hover:text-gray-400">
+      <a href="https://lumastack.ru" className="text-sm">
         LumaStack Studio
       </a>
       <span className="sm:ml-4 text-sm">© 2024 Все права защищены.</span>

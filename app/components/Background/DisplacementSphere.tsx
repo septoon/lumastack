@@ -110,6 +110,28 @@ const DisplacementSphere: React.FC = (props) => {
   }, []);
 
   useEffect(() => {
+    const updateThemeColor = () => {
+      if (!uniforms.current) return;
+  
+      // Получаем текущий цвет анимации из шейдера (пример)
+      const time = uniforms.current.time.value;
+      const red = Math.round(120 + Math.sin(time) * 50);
+      const green = Math.round(200 + Math.cos(time) * 50);
+      const blue = Math.round(255);
+  
+      const newColor = `rgb(${red}, ${green}, ${blue})`;
+  
+      // Обновляем theme-color
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', newColor);
+    };
+  
+    const interval = setInterval(updateThemeColor, 500);
+  
+    return () => clearInterval(interval);
+  }, []);
+  
+
+  useEffect(() => {
     const dirLight = new DirectionalLight(rgbToThreeColor('250 250 250'), 0.6);
     const ambientLight = new AmbientLight(
       rgbToThreeColor('250 250 250'),
