@@ -11,6 +11,7 @@ interface Service {
   execution_time: string;
   technologies: string[];
   image: string;
+  alt: string;
 }
 
 interface ServicesState {

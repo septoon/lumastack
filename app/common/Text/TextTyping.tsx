@@ -6,9 +6,10 @@ interface TextTypingProps {
   speed?: number;
 }
 
-export const TextTyping: React.FC<TextTypingProps> = ({ text, speed = 10 }) => {
+export const TextTyping: React.FC<TextTypingProps> = ({ text, speed }) => {
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const [typingFinished, setTypingFinished] = useState(false);
 
   useEffect(() => {
     let i = 0;
@@ -18,6 +19,7 @@ export const TextTyping: React.FC<TextTypingProps> = ({ text, speed = 10 }) => {
         i++;
       } else {
         clearInterval(interval);
+        setTypingFinished(true);
       }
     }, speed);
 
@@ -27,7 +29,7 @@ export const TextTyping: React.FC<TextTypingProps> = ({ text, speed = 10 }) => {
   useEffect(() => {
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
-    }, 250);
+    }, 500);
 
     return () => clearInterval(cursorInterval);
   }, []);
@@ -37,9 +39,11 @@ export const TextTyping: React.FC<TextTypingProps> = ({ text, speed = 10 }) => {
           bg-gradient-to-r from-subGradientLight1 via-subGradientLight2 to-subGradientLight3 
           dark:from-subGradientDark1 dark:via-subGradientDark2 dark:to-subGradientDark3 ">
       {displayText}
-      <span className={`transition-opacity duration-300 ${showCursor ? "opacity-100" : "opacity-0"}`}>
-        |
-      </span>
+      {typingFinished && (
+        <span className={`transition-opacity duration-300 ${showCursor ? "opacity-100" : "opacity-0"}`}>
+          |
+        </span>
+      )}
     </span>
   );
 };

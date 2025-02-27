@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useInView } from '@/app/hooks/useInView';
 import Preloader from '../Preloader/Preloader';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/app/GlobalRedux/store';
 import { RootState } from '@/app/GlobalRedux/store';
@@ -56,7 +55,7 @@ const Services = () => {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="w-full h-full flex flex-col justify-between items-start">
-                <img src={serv.image} alt={serv.service_name} className='w-full rounded-md mb-4'/>
+                <img src={serv.image} alt={serv.alt} className='w-full rounded-md mb-4'/>
                 <h3 className="text-xl text-gray font-semibold mb-3">
                   {serv.service_name}
                 </h3>

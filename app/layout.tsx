@@ -27,7 +27,7 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
         />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.ico?v=3" type="image/x-icon" />
+        <link rel="icon" href="/favicon.svg" type="image/x-icon" />
         <meta name="theme-color" content="#121212" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

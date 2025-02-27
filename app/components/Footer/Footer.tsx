@@ -17,7 +17,7 @@ const Footer = () => {
       </a>
     </div>
 
-    <div className="flex justify-center mt-4 sm:mt-0 self-center">
+    <div className="flex justify-center flex-col md:flex-row items-center mt-4 sm:mt-0 self-center">
       <a href="https://lumastack.ru" className="text-sm">
         LumaStack Studio
       </a>

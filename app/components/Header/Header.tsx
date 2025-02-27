@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ isOpen, setIsOpen }) => {
         <div className="flex h-16 justify-between items-center px-6">
           <div className='flex items-center text-yellow-400'>
           
-          <Image src={icon} alt='luma-icon' className='w-6 h-6 mr-2' />
+          <Image src={icon} alt="Веб-студия разработки сайтов в Алуште, создание лендингов, интернет-магазинов, чат-ботов, нейросети, генерация фото и видео с AI - LumaStack" className='w-6 h-6 mr-2' />
             <a
               href="#home"
               onClick={(e) => {

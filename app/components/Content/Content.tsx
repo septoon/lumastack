@@ -16,7 +16,7 @@ const Content: React.FC = () => {
             Создаем IT-продукты для роста вашего бизнеса
           </h1>
           <div className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            <TextTyping text="От разработки ботов до сложных приложений - качественно, с гарантией и прозрачными условиями." />
+            <TextTyping speed={20} text="От разработки ботов до сложных приложений - качественно, с гарантией и прозрачными условиями." />
           </div>
           <button onClick={() => setIsModalOpen(true)} className="
           mt-5 max-w-sm mx-auto rounded-2xl bg-btn-light dark:bg-btn-dark shadow-lg border-2 border-gradientLight1 hover:border-gradientLight2 cursor-pointer sm:flex sm:justify-center md:mt-8 transition-all duration-300 hover:scale-105">
