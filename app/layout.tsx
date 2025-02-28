@@ -52,6 +52,8 @@ export default function RootLayout({
         <meta property="twitter:title" content="LumaStack - Алушта" />
         <meta property="twitter:description" content="Создание сайтов, чат-ботов с ии, генерация контента с LumaStack в Алуште." />
         <meta property="twitter:image" content="https://lumastack.ru/image.webp" />
+        <link rel="stylesheet" href="https://cdn.direct.i-dgtl.ru/VerifyWidget.css" />
+        <script src="https://cdn.direct.i-dgtl.ru/VerifyWidget.umd.min.js" />
       </head>
       <body className="relative w-full h-full overflow-x-hidden">
         <ThemeProvider>

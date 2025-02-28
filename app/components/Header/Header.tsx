@@ -44,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({ isOpen, setIsOpen }) => {
           <div className="lg:hidden">
             <NavMobile isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
+          <a href="/profile">Sign In</a>
         </div>
 
       </nav>
