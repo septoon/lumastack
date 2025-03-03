@@ -15,7 +15,7 @@ export const NavMobile: React.FC<NavMobileProps> = ({ isOpen, setIsOpen }) => {
   useClickAway(ref, () => setIsOpen(false));
 
   return (
-    <div ref={ref} className="lg:hidden ">
+    <div ref={ref} className="lg:hidden text-black dark:text-white">
       <Hamburger toggled={isOpen} size={20} toggle={setIsOpen} />
       <AnimatePresence>
         {isOpen && (

@@ -1,111 +1,52 @@
-'use client'
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+'use client';
 
-export default function LoginPage() {
-  const [phone, setPhone] = useState('+7');
-  const [submitted, setSubmitted] = useState(false);
-  const router = useRouter();
-  let messageKey = '';
+import React from 'react';
+import { LoginButton } from '@telegram-auth/react';
+import { useDispatch } from 'react-redux';
+import { fetchTelegramPhoto, setUser } from '@/app/GlobalRedux/Features/userSlice';
+import { AppDispatch } from '@/app/GlobalRedux/store';
 
-  const sendAuthKeyFunc = async (key: string) => {
-    console.log('sendAuthKeyFunc — key:', key);
-    messageKey = key;
+interface TelegramUser {
+  id: number;
+  first_name: string;
+  last_name?: string;
+  username?: string;
+  phone_number?: string;
+  photo_url?: string;
+  auth_date: number;
+  hash: string;
+}
 
-    return fetch('/api/sendCode', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ key }),
-    });
-  };
+const LoginPage = () => {
+  const dispatch = useDispatch<AppDispatch>(); 
 
-  // Функция, вызываемая при успешном вводе кода
-  const onSuccessFunc = async () => {
-    console.log('onSuccessFunc — пользователь ввёл верный код!');
-    // Доп. проверка через /api/checkCode (если нужна) – здесь или до добавления пользователя
+  const handleTelegramAuth = async (user: TelegramUser) => {
+    console.log('Данные от Telegram:', user);
+    dispatch(setUser(user));
 
-    // Добавляем пользователя в users.json
-    try {
-      const response = await fetch('/api/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone, verified: true }),
-      });
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Ошибка добавления пользователя:', errorData);
-        return;
-      }
-      const data = await response.json();
-      console.log('Пользователь успешно добавлен:', data);
+    setTimeout(() => {
+        if (user.id) {
+            dispatch(fetchTelegramPhoto(user.id));
+        }
+    }, 500);
+};
 
-      // Сохраняем ID (или токен) в localStorage
-      localStorage.setItem('authToken', data.user.id);
-
-      alert('Номер телефона подтверждён!');
-      router.push('/profile');
-    } catch (error) {
-      console.error('Ошибка сети при добавлении пользователя:', error);
-    }
-  };
-
-  useEffect(() => {
-    if (submitted && typeof window !== 'undefined') {
-      const w = (window as any).VerifyWidget;
-      if (w) {
-        w.mount(
-          '#sms-widget',
-          {
-            destination: phone,
-            widgetId: process.env.NEXT_PUBLIC_I_DIGIT_WIDGET_ID,
-            captchaSiteKey: process.env.NEXT_PUBLIC_CAPTCHA_SITEKEY,
-          },
-          sendAuthKeyFunc,
-          onSuccessFunc
-        );
-      } else {
-        console.log('VerifyWidget не найден. Убедитесь, что скрипт загружен без async.');
-      }
-    }
-  }, [submitted]);
-
-  // Когда нажимают "Отправить SMS"
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!phone) return;
-    setSubmitted(true);
-  };
+  const botUsername = process.env.NEXT_PUBLIC_BOT_USERNAME || 'default_bot_username';
 
   return (
-    <div style={{ margin: '2rem' }}>
-      {!submitted ? (
-        // Шаг 1: форма для ввода телефона
-        <form onSubmit={handleSubmit} style={{ marginBottom: '1rem' }}>
-          <label>
-            Введите номер телефона:
-            <br />
-            <input
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              style={{ width: '250px', marginTop: '0.5rem', color: 'black' }}
-            />
-          </label>
-          <br />
-          <button type="submit" style={{ marginTop: '1rem' }}>
-            Отправить SMS
-          </button>
-        </form>
-      ) : (
-        // Шаг 2: контейнер, куда встраивается виджет
-        <div>
-          <h3>
-            На номер <strong>{phone}</strong> отправлено SMS.
-          </h3>
-          <p>Введите код:</p>
-          <div id="sms-widget" style={{ marginTop: '1rem' }} />
-        </div>
-      )}
+    <div className="flex flex-col items-start justify-center">
+      <h2 className="text-sm mb-4">Вход через Telegram</h2>
+      <LoginButton
+        botUsername={botUsername}
+        onAuthCallback={handleTelegramAuth}
+        buttonSize="large"
+        cornerRadius={10}
+        showAvatar={false}
+        lang="ru"
+        requestAccess="write"
+      />
     </div>
   );
-}
+};
+
+export default LoginPage;

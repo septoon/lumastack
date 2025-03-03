@@ -12,10 +12,11 @@ import Footer from "./components/Footer/Footer";
 
 export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
   return (
     <div className="flex flex-col z-10 snap-y snap-mandatory scroll-smooth px-28 sm:px-0">
-      <Header isOpen={isOpen} setIsOpen={setIsOpen} />
-      <div className={`${isOpen ? 'absolute left-0 right-0 top-0 bottom-0 z-40 bg-white/50 dark:bg-black/50 backdrop-blur-md' : ''}`}></div>
+      <Header isOpen={isOpen} setIsOpen={setIsOpen} isProfileOpen={isProfileOpen} setIsProfileOpen={setIsProfileOpen} />
+      <div className={`${isOpen || isProfileOpen ? 'absolute left-0 right-0 top-0 bottom-0 z-40 bg-white/50 dark:bg-black/50 backdrop-blur-md' : ''}`}></div>
       <TelegramButton />
       <main id="home" className="h-screen snap-start flex items-center justify-between bg-transparent">
         <Content />

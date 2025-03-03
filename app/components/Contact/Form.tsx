@@ -7,6 +7,7 @@ import * as UAParser from 'ua-parser-js';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchServices } from '@/app/GlobalRedux/Features/servicesSlice';
 import { AppDispatch, RootState } from '@/app/GlobalRedux/store';
+import { loadUser } from '@/app/GlobalRedux/Features/userSlice';
 
 function SuccessPopup() {
   return (
@@ -35,11 +36,13 @@ function SuccessPopup() {
 const Form: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const services = useSelector((state: RootState) => state.services.services);
+  const user = useSelector((state: RootState) => state.user.user);
 
   const [formData, setFormData] = useState({
-    name: '',
+    name: user?.first_name || '',
     phone: '',
-    service: '', // Выбранная услуга
+    username: user?.username || '',
+    service: '',
     message: '',
   });
   const [errors, setErrors] = useState({
@@ -49,7 +52,7 @@ const Form: React.FC = () => {
   });
 
   const inputRef = useMask({
-    mask: '+7 (___) ___-__-__',
+    mask: ' (___) ___-__-__',
     replacement: { _: /\d/ },
   });
 
@@ -76,12 +79,13 @@ const Form: React.FC = () => {
         ? `${result.device.vendor || ''} ${result.device.model || ''} (${result.device.type})`.trim()
         : 'Desktop',
     });
+    dispatch(loadUser());
     dispatch(fetchServices());
   }, [dispatch]);
 
   const validatePhone = (value: string) => {
     const digitsOnly = value.replace(/\D/g, '');
-    return digitsOnly.length === 11;
+    return digitsOnly.length === 10;
   };
 
   const validateName = (value: string) => {
@@ -111,12 +115,13 @@ const Form: React.FC = () => {
     const token = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN;
     const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_ID;
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
-
+    const username = data.username ? `Ник в телеграмм: ${data.username}` : ''
     const message = `
 🔔 Новая заявка с сайта:
 
 👤 Имя: ${data.name}
-📱 Телефон: ${data.phone}
+📱 Телефон: +7${data.phone}
+  ${username}
 🛠 Услуга: ${data.service}
 💬 Комментарий: ${data.message || 'Не указан'}
 
@@ -124,7 +129,6 @@ const Form: React.FC = () => {
 • Браузер: ${deviceInfo.browser}
 • ОС: ${deviceInfo.os}
 • Устройство: ${deviceInfo.device}
-• Разрешение экрана: ${window.screen.width}x${window.screen.height}
 • Время отправки: ${new Date().toLocaleString('ru-RU')}
     `.trim();
 
@@ -146,7 +150,7 @@ const Form: React.FC = () => {
 
     const newErrors = {
       name: !validateName(formData.name),
-      phone: !validatePhone(formData.phone),
+      phone: !user ? !validatePhone(formData.phone) : true,
       service: !validateService(formData.service),
     };
 
@@ -161,7 +165,7 @@ const Form: React.FC = () => {
     try {
       const success = await sendToTelegram(formData);
       if (success) {
-        setFormData({ name: '', phone: '', service: '', message: '' });
+        setFormData({ name: '', phone: '', username: '', service: '', message: '' });
         setShowSuccessPopup(true);
         setTimeout(() => setShowSuccessPopup(false), 3000);
       }
@@ -185,21 +189,33 @@ const Form: React.FC = () => {
           }`}
         />
         {errors.name && <p className="mt-1 text-sm text-red">Введите имя (минимум 2 символа)</p>}
+        <div className='flex'>
+          <input className='w-10 mr-2 block dark:placeholder-white/80 p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500' placeholder='+7' />
+          <input
+            ref={inputRef}
+            value={formData.phone}
+            onChange={handleChange}
+            className={`block dark:placeholder-white/80 w-full p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500 ${
+              errors.phone ? 'border-red-300' : 'border-gray-300'
+            }`}
+            type="tel"
+            inputMode="numeric"
+            id="phone"
+            name="phone"
+          />
+        </div>
+        {errors.phone && <p className="mt-1 text-sm text-red">Введите корректный номер телефона</p>}
+
+        <span className='text-black dark:text-white'>или свяжемся через телеграмм</span>
 
         <input
-          ref={inputRef}
-          value={formData.phone}
-          onChange={handleChange}
-          className={`block dark:placeholder-white/80 w-full p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500 ${
-            errors.phone ? 'border-red-300' : 'border-gray-300'
-          }`}
-          placeholder="+7 (___) ___-__-__"
-          type="tel"
-          inputMode="numeric"
-          id="phone"
-          name="phone"
+          id="username"
+          name="username"
+          type="text"
+          value={formData.username}
+          disabled={true}
+          className="w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
         />
-        {errors.phone && <p className="mt-1 text-sm text-red">Введите корректный номер телефона</p>}
 
         <select
           id="service"

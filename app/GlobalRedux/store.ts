@@ -1,10 +1,12 @@
 // /app/store/index.ts
 import { configureStore } from '@reduxjs/toolkit';
 import servicesReducer from './Features/servicesSlice';
+import userReducer from './Features/userSlice';
 
 const store = configureStore({
   reducer: {
     services: servicesReducer,
+    user: userReducer,
   },
 });
 

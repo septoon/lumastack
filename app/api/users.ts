@@ -1,7 +1,7 @@
 // pages/api/users.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL; // "https://api.lumastack.ru"
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface User {
   id: string;

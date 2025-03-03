@@ -6,22 +6,22 @@ import { FaWpforms } from "react-icons/fa";
 export const navigation = [
   {
     title: "Услуги",
-    href: "#services",
+    href: "/#services",
     Icon: IoPricetagsOutline,
   },
   {
     title: "Проекты",
-    href: "#works",
+    href: "/#works",
     Icon: CiMobile3,
   },
   {
     title: "О нас",
-    href: "#about",
+    href: "/#about",
     Icon: BsInfoCircle,
   },
   {
     title: "Связаться",
-    href: "#contact",
+    href: "/#contact",
     Icon: FaWpforms,
   },
 ];

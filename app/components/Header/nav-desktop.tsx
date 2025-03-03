@@ -2,7 +2,7 @@ import { navigation } from '@/app/common/navigation';
 
 export const NavDesktop = () => {
   return (
-    <ul className="hidden lg:flex lg:items-center gap-5 text-sm">
+    <ul className="hidden lg:flex lg:items-center gap-5 text-sm text-black dark:text-white">
       {navigation.map((route) => {
         const { Icon, href, title } = route;
         return (

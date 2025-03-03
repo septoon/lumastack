@@ -23,13 +23,13 @@ const Contact: React.FC = () => {
       }`}
     >
       {/* Левая половина (Форма) */}
-      <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-end lg:items-center justify-center p-0 md:p-8 sm:px-4">
+      <div className="w-full md:w-1/2 h-[70%] md:h-full flex items-end lg:items-center justify-center p-0 md:p-8 sm:px-4">
         <Form />
       </div>
 
       {/* Правая половина (Текст) */}
-      <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-8">
-        <h1 className="text-5xl font-unbounded font-extrabold text-center ">
+      <div className="w-full md:w-1/2 h-[30%] md:h-full flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-8">
+        <h1 className="text-5xl font-unbounded font-extrabold text-center text-black dark:text-white">
             Оставьте заявку!
         </h1>
       </div>

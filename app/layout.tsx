@@ -54,6 +54,23 @@ export default function RootLayout({
         <meta property="twitter:image" content="https://lumastack.ru/image.webp" />
         <link rel="stylesheet" href="https://cdn.direct.i-dgtl.ru/VerifyWidget.css" />
         <script src="https://cdn.direct.i-dgtl.ru/VerifyWidget.umd.min.js" />
+        <script
+    dangerouslySetInnerHTML={{
+      __html: `
+        (function() {
+          try {
+            var theme = localStorage.getItem('theme');
+            if (!theme) {
+              theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            if (theme === 'dark') {
+              document.documentElement.classList.add('dark');
+            }
+          } catch (e) {}
+        })();
+      `,
+    }}
+  />
       </head>
       <body className="relative w-full h-full overflow-x-hidden">
         <ThemeProvider>

@@ -14,13 +14,8 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50"
     onClick={onClose}>
-      <div className="bg-white/60 dark:bg-darkGray/60 rounded-lg p-6 max-w-lg w-full shadow-lg animate-slideUp" 
+      <div className="bg-transparent rounded-lg p-6 max-w-lg w-full shadow-lg animate-slideUp" 
       onClick={(e) => e.stopPropagation()}>
-        <button
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-          onClick={onClose}>
-          ✖
-        </button>
         <h3 className="text-xl font-semibold text-center mb-4">Оставьте заявку</h3>
         <Form />
       </div>
