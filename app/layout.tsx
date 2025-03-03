@@ -6,7 +6,7 @@ import { Providers } from './GlobalRedux/provider';
 
 export const metadata: Metadata = {
   title: 'LumaStack - Алушта',
-  description: 'Создание сайтов, чат-ботов с ии, генерация контента с LumaStack в Алуште.',
+  description: 'Создание сайтов, чат-ботов с ии, генерация контента с Люма Стек в Алуште.',
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
         />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.svg" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico?v=3" type="image/x-icon" />
         <meta name="theme-color" content="#121212" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -36,7 +36,7 @@ export default function RootLayout({
         <meta
           name="keywords"
           content="веб-разработка, приложение, программирование, сайты, разработка приложений, 
-        создать сайт, нейросеть, генерация фото, генерация видео, заказать чат бот, заказать сайт в Алуште, "
+          создать сайт, нейросеть, генерация фото, генерация видео, заказать чат бот, заказать сайт в Алуште, люмастек, веб студия люма "
         />
 
         <meta name="yandex-verification" content="0f256fcac62c421c" />
@@ -52,8 +52,6 @@ export default function RootLayout({
         <meta property="twitter:title" content="LumaStack - Алушта" />
         <meta property="twitter:description" content="Создание сайтов, чат-ботов с ии, генерация контента с LumaStack в Алуште." />
         <meta property="twitter:image" content="https://lumastack.ru/image.webp" />
-        <link rel="stylesheet" href="https://cdn.direct.i-dgtl.ru/VerifyWidget.css" />
-        <script src="https://cdn.direct.i-dgtl.ru/VerifyWidget.umd.min.js" />
         <script
     dangerouslySetInnerHTML={{
       __html: `
