@@ -3,8 +3,8 @@
 import React from 'react';
 import { LoginButton } from '@telegram-auth/react';
 import { useDispatch } from 'react-redux';
-import { fetchTelegramPhoto, setUser } from '@/app/GlobalRedux/Features/userSlice';
 import { AppDispatch } from '@/app/GlobalRedux/store';
+import { setUser, fetchTelegramPhoto, postUserData } from '@/app/GlobalRedux/Features/userSlice';
 
 interface TelegramUser {
   id: number;
@@ -18,18 +18,24 @@ interface TelegramUser {
 }
 
 const LoginPage = () => {
-  const dispatch = useDispatch<AppDispatch>(); 
+  const dispatch = useDispatch<AppDispatch>();
 
-  const handleTelegramAuth = async (user: TelegramUser) => {
+  const handleTelegramAuth = (user: TelegramUser) => {
     console.log('Данные от Telegram:', user);
+
+    // 1) Сохраняем пользователя в Redux и localStorage
     dispatch(setUser(user));
 
-    setTimeout(() => {
-        if (user.id) {
-            dispatch(fetchTelegramPhoto(user.id));
-        }
-    }, 500);
-};
+    // 2) Если есть user.id, грузим фото из Telegram
+    if (user.id) {
+      setTimeout(() => {
+        dispatch(fetchTelegramPhoto(user.id));
+      }, 500);
+    }
+
+    // 3) Отправляем данные пользователя на сервер
+    dispatch(postUserData(user));
+  };
 
   const botUsername = process.env.NEXT_PUBLIC_BOT_USERNAME || 'default_bot_username';
 

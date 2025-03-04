@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-<footer className=" mb-4 mx-2 p-4 bg-white/60 dark:bg-black/60 rounded-lg backdrop-blur-md shadow-lg z-40">
+<footer className=" mb-4 mx-2 p-4 bg-white/60 dark:bg-black/60 text-black dark:text-white rounded-lg backdrop-blur-md shadow-lg z-40">
   <div className="container mx-auto max-w-6xl flex flex-col justify-between items-start">
     <div className="flex flex-col items-start">
       <p className="text-sm mb-2">Почта: <a href="mailto:contact@lumastack.ru" className="hover:text-gray underline">contact@lumastack.ru</a></p>
       <p className="text-sm mb-2">Телефон: <a href="tel:+79786652048" className="hover:text-gray underline font-semibold">+7 978 665 20 48</a></p>
       <p className="text-sm mb-2">Адрес: г. Алушта</p>
-      <p className="text-sm mb-2">Режим работы: ежедневно с 9 до 20:00</p>
+      <p className="text-sm mb-2">Режим работы: ежедневно с 9:00 до 20:00</p>
     </div>
 
     <div className="flex flex-col sm:flex-row items-center mb-4">

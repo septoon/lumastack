@@ -11,7 +11,7 @@ import { loadUser } from '@/app/GlobalRedux/Features/userSlice';
 
 function SuccessPopup() {
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 animate-fadeIn">
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 animate-fadeIn text-black dark:text-white">
       <div className="bg-white dark:bg-darkGray rounded-lg p-8 max-w-sm mx-4 relative animate-slideUp">
         <div className="absolute -top-12 left-1/2 -translate-x-1/2">
           <div className="bg-green-100 rounded-full p-3">
@@ -121,7 +121,7 @@ const Form: React.FC = () => {
 
 👤 Имя: ${data.name}
 📱 Телефон: +7${data.phone}
-  ${username}
+📨  Ник в телеграмм: @${username}
 🛠 Услуга: ${data.service}
 💬 Комментарий: ${data.message || 'Не указан'}
 
@@ -150,7 +150,7 @@ const Form: React.FC = () => {
 
     const newErrors = {
       name: !validateName(formData.name),
-      phone: !user ? !validatePhone(formData.phone) : true,
+      phone: !user && !validatePhone(formData.phone),
       service: !validateService(formData.service),
     };
 
@@ -184,19 +184,21 @@ const Form: React.FC = () => {
           placeholder="Имя *"
           value={formData.name}
           onChange={handleChange}
-          className={`w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c] ${
-            errors.name ? 'border-red-300' : 'border-gray-300'
+          className={`w-full dark:placeholder-white/80 p-2 text-black dark:text-white border border-gray rounded dark:bg-[#ec704c] ${
+            errors.name ? 'border-red' : 'border-gray'
           }`}
         />
         {errors.name && <p className="mt-1 text-sm text-red">Введите имя (минимум 2 символа)</p>}
         <div className='flex'>
-          <input className='w-10 mr-2 block dark:placeholder-white/80 p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500' placeholder='+7' />
+          <div className='w-10 mr-2 block p-2 rounded-md shadow-sm border-gray bg-white dark:bg-[#ec704c]'>
+            <p className='text-black dark:text-white'>+7</p>
+          </div>
           <input
             ref={inputRef}
             value={formData.phone}
             onChange={handleChange}
-            className={`block dark:placeholder-white/80 w-full p-2 rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500 ${
-              errors.phone ? 'border-red-300' : 'border-gray-300'
+            className={`block dark:placeholder-white/80 w-full p-2 text-black dark:text-white rounded-md shadow-sm dark:bg-[#ec704c] focus:ring-blue-500 focus:border-blue-500 ${
+              errors.phone ? 'border-red' : 'border-gray'
             }`}
             type="tel"
             inputMode="numeric"
@@ -206,23 +208,25 @@ const Form: React.FC = () => {
         </div>
         {errors.phone && <p className="mt-1 text-sm text-red">Введите корректный номер телефона</p>}
 
-        <span className='text-black dark:text-white'>или свяжемся через телеграмм</span>
+        {
+          user ? (
+            <>
+              <span className='text-gray dark:text-white text-center'>↓ или свяжемся через телеграмм ↓</span>
 
-        <input
-          id="username"
-          name="username"
-          type="text"
-          value={formData.username}
-          disabled={true}
-          className="w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
-        />
+              <div className='w-full p-2 text-blue dark:text-secondary border-gray rounded bg-white dark:bg-[#ec704c]'>
+                <p>@{formData.username}</p>
+              </div>
+            </>
+          ) : ''
+        }
+        
 
         <select
           id="service"
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="w-full dark:text-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
+          className="w-full dark:text-white/80 p-2 text-black border border-gray rounded dark:bg-[#ec704c]"
         >
           <option value="">Выберите услугу *</option>
           {services.map((service) => (
@@ -239,7 +243,7 @@ const Form: React.FC = () => {
           value={formData.message}
           onChange={handleChange}
           placeholder="Комментарий"
-          className="w-full dark:placeholder-white/80 p-2 text-black border border-gray-300 rounded dark:bg-[#ec704c]"
+          className="w-full dark:placeholder-white/80 p-2 text-black dark:text-white border border-gray rounded dark:bg-[#ec704c]"
         />
         <button type="submit" disabled={isSubmitting} className="w-full p-2 bg-black text-white rounded">
           {isSubmitting ? 'Отправка...' : '>_ Отправить'}

@@ -151,7 +151,7 @@ module.exports = {
         transparent: 'transparent',
         primary: '#1E90FF',
         main: '#007da0',
-        secondary: '#6fd9e5',
+        secondary: '#1E40AF',
         back: '#21A599',
         bgOrder: '#EFEFF4',
         bgInput: '#EBEBEE',

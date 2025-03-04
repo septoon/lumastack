@@ -21,7 +21,7 @@ const Content: React.FC = () => {
           <button onClick={() => setIsModalOpen(true)} className="
           mt-5 max-w-sm mx-auto rounded-2xl text-black dark:text-white bg-btn-light dark:bg-btn-dark shadow-lg border-2 border-gradientLight1 hover:border-gradientLight2 cursor-pointer sm:flex sm:justify-center md:mt-8 transition-all duration-300 hover:scale-105">
             <p className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-btn-dark dark:text-btn-light md:py-4 md:text-lg md:px-10">
-              Зказать
+              Заказать
             </p>
           </button>
         </div>
