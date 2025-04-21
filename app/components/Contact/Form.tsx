@@ -115,13 +115,13 @@ const Form: React.FC = () => {
     const token = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN;
     const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_ID;
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
-    const username = data.username ? `Ник в телеграмм: ${data.username}` : ''
+    const username = data.username ? `Ник в телеграмм: @${data.username}` : ''
     const message = `
 🔔 Новая заявка с сайта:
 
 👤 Имя: ${data.name}
 📱 Телефон: +7${data.phone}
-📨  Ник в телеграмм: @${username}
+📨 ${username}
 🛠 Услуга: ${data.service}
 💬 Комментарий: ${data.message || 'Не указан'}
 

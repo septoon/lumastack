@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LumaStack – студия веб-разработки и нейро-фотосессий
 
-## Getting Started
+## 📖 Описание
+**LumaStack** — современная студия полного цикла, специализирующаяся на:
+- разработке адаптивных веб-сайтов и Progressive Web Apps,
+- создании нейро‑фотосессий на заказ,
+- генерации видео и озвучки с помощью ИИ.
 
-First, run the development server:
+🌐 **Сайт студии**: [lumastack.ru](https://lumastack.ru)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Услуги
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Веб-разработка
+- Адаптивные сайты и PWA на Next.js
+- Фронтенд на React и Vue
+- Настройка бэкенда и API (Node.js, Express, GraphQL/REST)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Нейро‑фотосессии
+- Авторские фотоконтенты с ИИ-подсказками
+- Стильная обработка, свет и фоновые атмосферы
+- Быстрый цикл правок и экспорт в PNG/JPEG
 
-## Learn More
+### Генерация видео
+- Рекламные ролики и анимации логотипов
+- Текстовые вставки и спецэффекты
+- Экспорт в MP4/WebM
 
-To learn more about Next.js, take a look at the following resources:
+### Генерация голоса
+- Синтез натуральной речи (мульти-язычные голосовые дорожки)
+- Интеграция через API
+- Готовые аудиоформаты для веб и мобильных приложений
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💼 Портфолио
+- **Tatti**: сайт доставки авторской еды (кейтеринг) — [github.com/septoon/tatti](https://github.com/septoon/tatti)  
+- **SHD-Next**: сайт доставки еды на Next.js — [github.com/septoon/shd-next](https://github.com/septoon/shd-next)  
+- **Admin-SHD**: админ-панель для доставки еды (Telegram Mini App) — [github.com/septoon/admin-shd](https://github.com/septoon/admin-shd)  
+- **Empire**: сайт студии лазерной эпиляции — [github.com/septoon/empire](https://github.com/septoon/empire)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Как заказать
+1. Опишите задачу и требования любым удобным способом (email, Telegram или форму на сайте).  
+2. Получите предварительную смету и сроки выполнения.  
+3. Заключите договор и внесите аванс.  
+4. Следите за прогрессом на каждом этапе через удобную панель или по почте.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 💬 Отзывы клиентов
+> *"LumaStack сделал нам сайт в рекордные сроки и учёл все пожелания!"*  
+> — Иван Петров, CEO компании «Delish Catering»
+
+> *"Нейро-фотосессия превзошла ожидания: теперь у нас уникальные изображения."*  
+> — Мария Смирнова, бренд-менеджер
+
+---
+
+## 📞 Контакты
+- Email: contact@lumastack.ru
+- Telegram: [@lumaStack](https://t.me/lumaStack)  
+- Сайт: [lumastack.ru](https://lumastack.ru)
+
+---
+
+## 🔏 Лицензия
+Проект распространяется по лицензии MIT.

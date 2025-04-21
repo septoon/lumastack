@@ -5,7 +5,7 @@ import './globals.css';
 import { Providers } from './GlobalRedux/provider';
 
 export const metadata: Metadata = {
-  title: 'LumaStack - Алушта',
+  title: 'Люма Стек | Веб студия в Алуште | Заказать сайт | Заказать нейро-фотосессию',
   description: 'Создание сайтов, чат-ботов с ии, генерация контента с Люма Стек в Алуште.',
 };
 
